@@ -1,0 +1,35 @@
+/* 
+ Basic Analog Gauge Needle Fluctuate 
+ Based on Arduino sketch "Fade" 
+*/ 
+ 
+int agauge = 3;        // the pin that the Analog Gauge attached 
+int needlepos = 145;     // initial needle position 
+int needleswing = 10;   // how far the needle should swing either side of needlepos 
+int needlespeed = 15;   // how fast the needle moves 
+ 
+// Derived values, no need to modify 
+int needlelowerlimit = needlepos - needleswing;   // minimum needle position 
+int needleupperlimit = needlepos + needleswing;   // max needle position 
+ 
+// the setup routine runs once when you press reset: 
+void setup()  {  
+  // declare pin to be an output: 
+  pinMode(agauge, OUTPUT); 
+}  
+ 
+// the loop routine runs over and over again forever: 
+void loop()  {  
+  // set the position of needle: 
+  analogWrite(agauge, needlepos);     
+ 
+  // change the needle position: 
+  needlepos = needlepos + needlespeed; 
+ 
+  // reverse the direction of the needle's movement at the ends:  
+  if (needlepos < needlelowerlimit || needlepos > needleupperlimit) { 
+    needlespeed = -needlespeed ;  
+  }      
+  // wait for 30 milliseconds to see the dimming effect     
+  delay(50);                             
+} 
