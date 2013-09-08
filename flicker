@@ -2,22 +2,22 @@
 #define FLICKER_LED_PIN 11
  
 // the start of the flicker (low)
-static int flicker_low_min = 200;
-static int flicker_low_max = 240;
+static int flicker_low_min = 20; // 200 originally, 20 looks good
+static int flicker_low_max = 240; // 240 orig
  
 // the end value of the flicker (high)
-static int flicker_high_min = 230;
-static int flicker_high_max = 256;
+static int flicker_high_min = 100; // 230 orig
+static int flicker_high_max = 256; // 256 orig
  
 // delay between each low-high-low cycle
 // low->high |flicker_hold| high->low
-static int flicker_hold_min = 40; // milliseconds
-static int flicker_hold_max = 80; // milliseconds
+static int flicker_hold_min = 40; // milliseconds, 40 orig
+static int flicker_hold_max = 80; // milliseconds, 80 orig
  
 // delay after each low-high-low cycle
 // low->high->low |flicker_pause| low->high...
-static int flicker_pause_min = 100; // milliseconds
-static int flicker_pause_max = 200;  // milliseconds
+static int flicker_pause_min = 100; // milliseconds, 100 orig
+static int flicker_pause_max = 250;  // milliseconds, 200 orig
  
 // delay low to high and high to low cycle
 static int flicker_speed_min = 900; // microseconds
